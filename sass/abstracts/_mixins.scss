@@ -1,0 +1,40 @@
+@mixin clearfix{
+    &::after{
+        content:"";
+        display:table;
+        clear:both;
+    }
+}
+@mixin defaultBoxShadow{
+    box-shadow:0 2rem 4rem rgba($color-black, .5);
+}
+/*devices in pixels 
+0 - 600px mobiles,
+600 - 900px tables port,
+900 - 1200px tablet land,
+1200 - 1800px desktops,
+1800px + Big screen. 
+
+
+ breaking point
+--phone 37.5em == 600px
+--tablet-port 56.25em == 900px
+--tablet-land 75em == 1200px
+--big-screen 112.5em == 1800px*/ 
+@mixin respond($breakpoint){
+    @if $breakpoint == small-phone {
+        @media(max-width: 28.125em) { @content };    //450
+    }
+    @if $breakpoint == phone {
+        @media(max-width: 37.5em) { @content };    //600px
+    }
+    @if $breakpoint == tab-port {
+        @media(max-width: 56.25em) { @content };     //900px
+    }
+    @if $breakpoint == tab-land {
+        @media(max-width: 75em) { @content };    //1200px
+    }
+    @if $breakpoint == big-desktop {
+        @media(min-width: 112.5em) { @content };    //1800
+    }
+}

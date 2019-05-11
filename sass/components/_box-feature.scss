@@ -1,0 +1,32 @@
+.box-feature{
+    background-color:$color-lightGrey;
+    padding:3rem;
+    text-align:center;
+    box-shadow:0 2rem 4rem 0 rgba($color-black, .5);
+    border-radius: 3px;
+    transition: transition .3s;
+    @include respond(tab-port){
+        padding:2rem;
+    }
+    &__icon {
+    font-size:5rem;
+    & > *{
+        background-image:linear-gradient(to right,$color-blue, $color-secondary);
+        -webkit-background-clip:text;
+        color:transparent;
+    }
+    }
+    &__paragraph{
+    color:red;
+    }  
+    &:hover {
+        animation-duration: 2s;
+        animation-name:moveUpp;
+    }  
+}
+//icons color
+fa {
+    background-image:linear-gradient(to right,$color-blue, $color-secondary);
+    -webkit-background-clip:text;
+    color:transparent;
+}

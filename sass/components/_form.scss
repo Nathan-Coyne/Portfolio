@@ -1,0 +1,98 @@
+.form{
+    z-index: 2;
+    width:100%;
+
+    &__group:not(:last-child){
+        margin-bottom:2rem;
+
+    }
+    &__group{
+        padding:0 0rem;
+        font-family: inherit;   
+        transform: translateX(13%);
+        width:100%;
+
+    }
+    &__input{
+        margin-top:6rem;
+        font-size: 2rem;
+        border-radius: 3px;
+        font-family: inherit;
+        border:none;
+        border-bottom:5px solid $color-primary;
+        width:100%;
+        display:block;
+        background-color: $color-lightGrey;
+        &:focus:invalid{
+            border-bottom:5px solid red;
+        }
+        &:focus:valid{
+            border-bottom:5px solid green;
+        }
+        
+    }
+
+    &__label{
+    font-size:1.5rem;
+    font-weight:900;
+    }
+    //gets the sibaling as they are both children of input. It gets the sibling directly after the first one written if you need a different one you use ~
+   &__input:placeholder-shown + &__label{
+       opacity:0;
+       visibility: hidden;
+       transform: translateY(-4rem);
+   }
+   &__group-radio {
+    width:33%;
+    display: inline-block;
+    margin-left:2rem;  
+    @include respond(phone){
+        width:100%;
+        text-align: center;
+        margin-left:0rem;
+    }
+    @include respond(small-phone){
+        padding-left:0rem;
+    }
+   }
+   &__radio-label {
+      font-size:$default-font-size;
+      position: relative;
+      cursor: pointer
+   }
+   &__radio-input{
+       display:none;
+   }
+  &__radio-button {
+    height:2.5rem;
+    width:2.5rem;
+    border: .5rem solid $color-secondary;
+    border-radius: 50%;
+    display: inline-block;
+    transform: translate(-.3rem .3rem);
+    position: relative; 
+
+    &::after {
+        content:"";
+        height: 2rem;
+        width:2rem;
+        border-radius: 50%;
+        position: absolute;
+        top:0;
+        left:0;
+        background-color:$color-primary;
+        opacity: 0;
+        transition: opacity .2s;
+    
+    }
+   }
+
+  &__radio-input:checked ~ &__radio-label &__radio-button::after {
+      opacity:1;
+      transform: translateX(-.256rem) translateY(-.25rem);
+      @include respond(phone){
+        transform: translateX(-.2rem) translateY(-.2rem);
+      }
+  } 
+}
+

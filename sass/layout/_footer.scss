@@ -1,0 +1,77 @@
+.footer {
+    padding:3rem;
+    font-size:2rem;
+    background-color: $color-darkBlue;
+
+    &__logo-container{
+        text-align: center;
+    }
+
+    &__logo {
+        margin-top:8rem;
+        background-color:blue;
+        width:15rem;
+        height: 15rem;
+        margin:0 auto;
+        padding-top:2rem;
+
+    }
+    &__navigation {
+        border-top: 2px solid $color-primary;
+        padding-top: 2rem;
+        display: inline-block;
+
+        @include respond(tab-port){
+            width:100%;
+            text-align: center;
+        }
+    }
+
+    &__list {
+        list-style: none;
+
+    }
+
+    &__item{
+        display:inline-block;
+        &:not(last-child) {
+            margin-right:1.5rem;
+            
+        }
+
+    }
+
+    &__link {
+        &:link,
+        &:visited {
+            color:$color-secondary;
+            transition: all 2s;
+            display: inline-block;
+        }
+        &:hover,
+        &:active{
+            @include defaultBoxShadow;
+            transform: scale(1.1);
+            color:$color-primary;
+            background-color:inherit;
+            
+        }
+
+
+    }
+    &__copyright{
+        color:$color-darkGreyPurple;
+        border-top: 2px solid $color-primary;
+        padding-top: 2rem;
+        display: inline-block;
+        background-color: $color-darkBlue;
+
+        @include respond(tab-port){
+            width:100%;
+            display: inline-block;
+            text-align: center;
+        }
+    }
+
+
+}

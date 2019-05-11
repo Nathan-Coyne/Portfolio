@@ -1,0 +1,44 @@
+/*ensures all element across browsers are reset pseudo elements need to be selected separately universal * doesn't target them. */
+*,
+*::after,
+*::before {
+    margin:0;
+    padding:0;
+    box-sizing: inherit;
+}
+/* Changes the default font size to 10 px if browser default is 16px this is so we can use rem values 1rem==10px*/
+html {
+    font-size: 62.5%;
+    @include respond(big-desktop){
+        font-size:75%;
+        background:blue;
+    }
+    @include respond(tab-land){
+        font-size:56.25%;
+        background:green;
+    }
+    @include respond(tab-port){
+        font-size:50%;
+        background:orangered;
+    }
+    @include respond(phone){
+        font-size:43.75%;
+        background: orange;
+    }
+
+
+
+
+
+
+
+
+}
+
+body {
+    box-sizing:border-box;
+    padding:2rem;
+    @include respond(phone){
+        padding:0;
+    }
+}

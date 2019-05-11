@@ -1,0 +1,223 @@
+.card{
+    perspective: 100rem;
+    -moz-perspective: 100rem;
+    position: relative;
+    height:50rem;
+
+    &__side{
+        transition: all 1s ease;
+        position: absolute;
+        top:0;
+        left:0;
+        height:50rem; 
+        width:100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        @include defaultBoxShadow;
+        border-radius:20px;
+        overflow: hidden;
+        &--front {
+                &--1{ 
+                    background-image:linear-gradient(to right bottom, $color-darkGreyPurple, $color-primary);
+                }
+                &--2 {
+                    background-image:linear-gradient(to right bottom,  $color-primary, $color-secondary);
+                }
+                &--3{ 
+                    background-image:linear-gradient(to right bottom, $color-secondary, $color-red);
+                }
+        }
+        &--back{
+            transform:rotateY(180deg);
+            &--1 {
+                background-image:linear-gradient(to right bottom, $color-darkGreyPurple, $color-primary);
+            
+            }
+            &--2 {
+                background-image:linear-gradient(to right bottom,  $color-primary, $color-secondary);
+            }
+            &--3 {
+                background-image:linear-gradient(to right bottom, $color-secondary, $color-red);
+            }
+
+        }
+    }
+    &:hover &__side--front{
+        transform:rotateY(-180deg);
+
+    }
+    &:hover &__side--back{
+        transform:rotateY(0deg);
+    }
+    
+    //styling of the front side of the first card.
+    &__image {
+        background-size:cover;
+        height:20rem;
+
+        @supports (background-blend-mode: hue){
+        background-blend-mode: hue;
+        }
+
+        @supports (-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%)) 
+        or (clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%)) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%);  
+
+        }
+        &--1{
+            background-image:linear-gradient(to right, rgba($color-darkGreyPurple, .5),  rgba($color-primary, .5)), url("../img/bird001.jpg");
+        }
+        &--2{
+            background-image:linear-gradient(to right,  rgba($color-primary, .5),  rgba($color-secondary, .5)), url("../img/bird001.jpg");
+        }
+        &--3{
+            background-image:linear-gradient(to right, rgba($color-secondary, .5), rgba($color-red, .5)), url("../img/bird001.jpg");
+        }
+    }
+    &__heading {
+        font-size:2rem;
+        text-transform: uppercase;
+        font-weight: 300;
+        text-align: left;
+        color:$color-black;
+        position: absolute;
+        top:1rem;
+        width:50%;
+        left:1rem;
+        }
+        &__heading--span {
+           padding: 2rem 2rem;
+           -webkit-box-decoration-break: clone; 
+           box-decoration-break: clone; 
+           &--1{
+            padding: 1rem 2rem;
+            background-image:linear-gradient(to right bottom, rgba($color-secondary, .8), rgba($color-red, .8));
+            border-radius: 2rem;    
+        }
+        }
+        &__paragraph {
+            padding:2rem;
+            ul{
+            list-style:none;
+            width:70%;
+            margin:0 auto;
+            }
+            li{
+                text-align:center;
+                font-size:2rem;
+                padding:2rem;
+                &:not(:last-child){
+                    border-bottom: 1px solid $color-black;
+
+                }
+            }
+        }
+        //backside style
+        &__callToAction{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            text-align:center;
+            width:80%;
+        }
+        &__box
+        {
+            text-align:center;
+            color:white;
+        }
+        &__box-price-1{
+            font-size:1.4rem;
+            text-transform: uppercase;
+        }
+        &__box-price-2{
+            font-size:6rem;
+            font-weight: 80;
+        }
+        @include respond(tab-port){
+            height:auto;
+
+            &__side{
+                position: relative;
+                top:0;
+                left:0;
+                height:50rem; 
+                width:100%;
+                transform:rotateY(0deg);
+                
+                
+                &--back{
+                    margin-top:-3rem;
+                    transform:rotateY(0deg);
+                    height: 25rem;
+                    -webkit-clip-path: polygon(0 0, 50% 10%, 100% 0, 100% 100%, 0 100%);
+                    clip-path: polygon(0 0, 50% 10%, 100% 0, 100% 100%,  0 100%);
+                    border-radius:0; 
+                    &--1 {
+                        background-image:radial-gradient( $color-darkPurple,  $color-darkBlue);
+                    }
+                    &--2 {
+                        background-image:radial-gradient( $color-darkPurple,  $color-darkBlue);
+                    }
+                    &--3 {
+                        background-image:radial-gradient( $color-darkPurple,  $color-darkBlue);                    }
+                    }
+            }
+            &:hover &__side--front{
+                transform:rotateY(0deg);
+            }
+            &:hover &__side--back{
+                transform:rotateY(0deg);
+            }
+            //styling of the front side of the first card.
+
+            &__heading {
+                font-size:2rem;
+                text-transform: uppercase;
+                font-weight: 300;
+                text-align: left;
+                top:1rem;
+                left:1rem;
+                }
+                &__paragraph {
+                    padding:2rem;
+                    ul{
+                    list-style:none;
+                    width:70%;
+                    margin:0 auto;
+                    }
+                    li{
+                        text-align:center;
+                        font-size:2rem;
+                        padding:2rem;
+                        &:not(:last-child){
+                            border-bottom: 1px solid $color-black;
+        
+                        }
+                    }
+                }
+                //backside style
+                &__callToAction{
+                    position: relative;
+                    top:0%;
+                    left:0%;
+                    transform: translate(0%, 0%);
+                    width:100%;
+                }
+                &__box
+                {
+                    text-align:center;
+                    color:white;
+                }
+                &__box-price-1{
+                    font-size:1.4rem;
+                    text-transform: uppercase;
+                }
+                &__box-price-2{
+                    font-size:6rem;
+                    font-weight: 80;
+                }
+        }
+    }
+
