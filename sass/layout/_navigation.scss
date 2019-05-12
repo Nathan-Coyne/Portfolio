@@ -46,12 +46,14 @@
         opacity: 0;
         transition: all 1s cubic-bezier(0, 0, 0.265, 1.35);
         transform-origin:right; 
+
         @include respond(small-phone){
             pointer-events: none;
         }
         @include respond(phone){
             left:0;
             }
+
         
     }
     &__list{
@@ -79,6 +81,9 @@
         background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
         background-size:230%;
         transition: all .5s;
+        @include respond(tab-port){
+            font-size:3rem;
+            }
         &:hover,
         &:active {
             background-position: 100%;

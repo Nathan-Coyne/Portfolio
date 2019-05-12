@@ -9,11 +9,18 @@
 
     &__logo {
         margin-top:8rem;
-        background-color:blue;
         width:15rem;
         height: 15rem;
         margin:0 auto;
         padding-top:2rem;
+        color:$color-primary;
+        position: relative;
+        font-size:10rem;
+        &::after{
+            content:"C";
+            color:$color-secondary;
+            z-index: 5;
+        }
 
     }
     &__navigation {
